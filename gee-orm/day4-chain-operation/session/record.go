@@ -56,7 +56,7 @@ func (s *Session) Find(values interface{}) error {
 func (s *Session) First(value interface{}) error {
 	dest := reflect.Indirect(reflect.ValueOf(value))
 	destSlice := reflect.New(reflect.SliceOf(dest.Type())).Elem()
-	if err := s.Limit(1).Find(destSlice.Addr().Interface()); err != nil {
+	if err := s.Limit(1).Find(destSlice.Addr().Interface()); err != nil 	{
 		return err
 	}
 	if destSlice.Len() == 0 {
